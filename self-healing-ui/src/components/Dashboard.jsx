@@ -15,6 +15,7 @@ function Dashboard() {
   const [animateStatus, setAnimateStatus] = useState(false);
   const [toast, setToast] = useState("");
   const [healing, setHealing] = useState("");
+  const [logs, setLogs] = useState([]);
 
 
   const loadData = () => {
@@ -58,6 +59,19 @@ function Dashboard() {
       score: randomScore
     }
   ]);
+  const time = new Date().toLocaleTimeString();
+
+setLogs(prev => [
+  ...prev,
+  `[${time}] Status: ${status}`
+]);
+setLogs(prev => {
+  const updated = [
+    ...prev,
+    `[${time}] Status: ${status}`
+  ];
+  return updated.slice(-8); // keep last 8 logs
+});
 };
 
 useEffect(() => {
@@ -154,6 +168,19 @@ useEffect(() => {
           <h3>AI Prevention Suggestion</h3>
           <p>{data.suggestion}</p>
         </div>
+        <div className="card" style={{ marginTop: "20px" }}>
+  <h3>System Logs</h3>
+
+  <div className="logs">
+    {logs.length === 0 ? (
+      <p>No logs yet...</p>
+    ) : (
+      logs.map((log, index) => (
+        <p key={index}>{log}</p>
+      ))
+    )}
+  </div>
+</div>
 
         {/* Chart */}
         <div style={{ marginTop: "20px", width: "100%" }}>
