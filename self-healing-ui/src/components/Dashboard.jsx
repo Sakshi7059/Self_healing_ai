@@ -133,19 +133,47 @@ useEffect(() => {
         <div className="grid">
 
   <div className="card">
-    <h3>CPU Usage</h3>
-    <h2>{data.cpu}%</h2>
+  <h3>CPU Usage</h3>
+
+  <div className="bar">
+    <div 
+      className="fill" 
+      style={{ width: `${data.cpu}%` }}
+    ></div>
   </div>
+
+  <p>{data.cpu}%</p>
+</div>
 
   <div className="card">
     <h3>Network Latency</h3>
     <h2>{data.latency} ms</h2>
   </div>
 
-  <div className="card">
-    <h3>Memory Usage</h3>
-    <h2>{data.memory}%</h2>
+ <div className="card">
+  <h3>Memory Usage</h3>
+
+  <div className="bar">
+    <div 
+      className="fill" 
+      style={{ width: `${data.memory}%` }}
+    ></div>
   </div>
+
+  <p>{data.memory}%</p>
+</div>
+<div 
+  className="fill"
+  style={{
+    width: `${data.cpu}%`,
+    background:
+      data.cpu < 40
+        ? "#22c55e"   // green
+        : data.cpu < 70
+        ? "#facc15"   // yellow
+        : "#ef4444"   // red
+  }}
+></div>
   
 
  <div className={`card ${data.status.toLowerCase()} ${data.status === "Critical" ? "critical-pulse" : ""} ${animateStatus ? "status-animate" : ""}`}>
