@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex " }}>
       
       {/* Sidebar
       <div className="sidebar">
