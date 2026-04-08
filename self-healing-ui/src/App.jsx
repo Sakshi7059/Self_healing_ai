@@ -15,9 +15,11 @@ function App() {
 
           <div className="main-content">
         {/* Header Bar */}
-        <div className="header">
-          <h2>AI Self-Healing Monitoring System</h2>
-        </div>
+       <div className="header">
+  <div className="header-content">
+    AI Self-Healing Monitoring System
+  </div>
+</div>
 
       {/* Main Dashboard Area */}
       <Dashboard />
