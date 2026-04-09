@@ -13,6 +13,7 @@ body {
 .dashboard {
   padding: 30px;
   width: 100vw;
+  box-sizing: border-box;
 }
 
 
@@ -95,14 +96,17 @@ body {
   100% { filter: brightness(0.5); }
 }
 
-
+html, body {
+  overflow-x: hidden;
+}
 
 .card {
   background: rgba(30, 41, 59, 0.9);
   padding: 20px;
   border-radius: 15px;
-  width: 98%;
+  width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .card h3 {
@@ -137,15 +141,15 @@ body {
 
 /* Glow Effects */
 .healthy {
-  box-shadow: 0 0 15px #22c55e;
+  box-shadow: 0 0 20px #22c55e;
 }
 
 .warning {
-  box-shadow: 0 0 15px #facc15;
+  box-shadow: 0 0 20px #facc15;
 }
 
 .critical {
-  box-shadow: 0 0 15px #ef4444;
+  box-shadow: 0 0 20px #ef4444;
   animation: blink 1s infinite;
 }
 
